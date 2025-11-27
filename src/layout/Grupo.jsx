@@ -1,17 +1,15 @@
-import "../App.css";
-function Grupo({ participantes }) {
+import CardGrupo from "./CardGrupo";
+
+
+function Grupo({ participantes, setParticipantes }) {
   return (
-    <>
-      <section className="grupo">
-        {participantes.map((p, i) => (
-          <div key={i} className="card-participante">
-            <h3> {p.nombre}</h3>
-            <p>ID: #{i}</p>
-            <button>Ingresar</button>
-          </div>
-        ))}
-      </section>
-    </>
+    <section>
+      <CardGrupo
+        participantes={participantes}
+        setParticipantes={setParticipantes} // ✅ DEBE REENVIARSE
+      />
+    </section>
   );
 }
+
 export default Grupo;

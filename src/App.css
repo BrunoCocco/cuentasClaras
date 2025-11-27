@@ -10,21 +10,38 @@
 }
 
 /* ============================================================
+   🔷 RESET Y BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--fuente-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  overflow-x: hidden; /* 🔹 evita scroll horizontal */
+}
+
+/* ============================================================
    🔷 HEADER – Cuentas Claras
    ============================================================ */
-/* reset mínimo para evitar sorpresas de caja */
-* { box-sizing: border-box; }
-
-/* HEADER: sin cambios funcionales */
 .header {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 3cm;
   background-color: var(--color-blanco);
   border-bottom: 2px solid var(--color-secundario);
-  display: flex; justify-content: center; align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   z-index: 1000;
 }
 
@@ -42,30 +59,29 @@
 
 .header-blok h2 {
   color: var(--color-primario);
-  font-family: var(--fuente-base);
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 /* ============================================================
-   📋 FORMULARIO – Cuentas Claras
+   📋 FORMULARIO – Página de inicio (Main)
    ============================================================ */
 .formulario {
-  width: 100vw;                       /* 🔹 ancho total del viewport */
-  min-height: calc(100vh - 3cm);      /* 🔹 alto útil (100vh menos header) */
-  margin-top: 3cm;                    /* 🔹 empuja debajo del header fijo */
+  width: 100vw;
+  min-height: calc(100vh - 3cm);
+  margin-top: 3cm;
   background-color: var(--color-fondo);
-
-  display: flex; justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* el card interno queda igual */
 .formulario article {
   background-color: var(--color-blanco);
   border: 1px solid var(--color-secundario);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 2rem 3rem;
   text-align: center;
   max-width: 400px;
@@ -118,17 +134,13 @@
 }
 
 /* ============================================================
-   💳 CARD DE PARTICIPANTE – Cuentas Claras
-   ============================================================ */
-/* ============================================================
-   👥 GRUPO – contenedor de las cards
+   👥 GRUPO – Contenedor de las cards
    ============================================================ */
 .grupo {
   width: 100vw;
-  min-height: calc(100vh - 3cm); /* ocupa todo el alto visible menos el header */
-  margin-top: 3cm;                /* empuja debajo del header */
+  min-height: calc(100vh - 3cm);
+  margin-top: 3cm;
   background-color: var(--color-fondo);
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -137,8 +149,10 @@
   box-sizing: border-box;
 }
 
-
-   .card-participante {
+/* ============================================================
+   💳 CARD DE PARTICIPANTE
+   ============================================================ */
+.card-participante {
   background-color: var(--color-blanco);
   border: 1px solid var(--color-secundario);
   border-radius: 12px;
@@ -148,7 +162,7 @@
   width: 260px;
   text-align: center;
   transition: transform var(--transicion), box-shadow var(--transicion);
-  display: inline-block; /* 🔹 se acomodan una al lado de otra */
+  display: inline-block;
   vertical-align: top;
 }
 
@@ -182,4 +196,120 @@
 .card-participante button:hover {
   background-color: var(--color-secundario);
   transform: scale(1.05);
+}
+
+/* ============================================================
+   💬 MODAL – Agregar gasto
+   ============================================================ */
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 1;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-caja {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  width: 300px;
+  animation: zoomIn 0.25s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-caja h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-caja input,
+.modal-caja select {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.modal-botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.modal-botones button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #1f4e79;
+  color: white;
+  transition: 0.2s;
+}
+
+.modal-botones button:hover {
+  background-color: #163958;
+}
+
+/* ============================================================
+   💰 FOOTER – Balance final
+   ============================================================ */
+.footer-balance {
+  width: 100vw;            /* 🔹 ocupa todo el ancho */
+  background-color: var(--color-fondo);
+  border-top: 2px solid var(--color-primario);
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.footer-balance h3 {
+  margin-bottom: 10px;
+}
+
+.footer-balance ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-balance li {
+  margin: 4px 0;
+}
+
+/* ============================================================
+   🧩 ESTRUCTURA PRINCIPAL – Main y Footer full width
+   ============================================================ */
+main,
+footer,
+section,
+.formulario,
+.grupo,
+.footer-balance {
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+main,
+section {
+  align-self: stretch;
 }

@@ -14,6 +14,7 @@ function Main({
       const nuevos = Array.from({ length: valorInput }, (_, i) => ({
         id: i + 1,
         nombre: "",
+        aporte: 0,
       }));
       setParticipantes(nuevos);
     } else {
