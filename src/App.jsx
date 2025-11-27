@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   const [vista, setVista] = useState("inicio");
 
-  const [participantes, setParticipantes] = useState();
+  const [participantes, setParticipantes] = useState([]);
   const [valorInput, setValorInput] = useState(0);
 
   return (
