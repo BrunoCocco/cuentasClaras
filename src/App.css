@@ -1,0 +1,185 @@
+:root {
+  --color-fondo: #f8f9fb;
+  --color-primario: #1f4e79;     /* azul petróleo */
+  --color-secundario: #c7d2fe;   /* azul pastel */
+  --color-texto: #1e293b;        /* gris oscuro */
+  --color-blanco: #ffffff;
+  --color-borde: #d1d5db;
+  --transicion: 0.2s ease-in-out;
+  --fuente-base: "Poppins", sans-serif;
+}
+
+/* ============================================================
+   🔷 HEADER – Cuentas Claras
+   ============================================================ */
+/* reset mínimo para evitar sorpresas de caja */
+* { box-sizing: border-box; }
+
+/* HEADER: sin cambios funcionales */
+.header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3cm;
+  background-color: var(--color-blanco);
+  border-bottom: 2px solid var(--color-secundario);
+  display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.header-blok {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-blok img {
+  width: 50px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.header-blok h2 {
+  color: var(--color-primario);
+  font-family: var(--fuente-base);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   📋 FORMULARIO – Cuentas Claras
+   ============================================================ */
+.formulario {
+  width: 100vw;                       /* 🔹 ancho total del viewport */
+  min-height: calc(100vh - 3cm);      /* 🔹 alto útil (100vh menos header) */
+  margin-top: 3cm;                    /* 🔹 empuja debajo del header fijo */
+  background-color: var(--color-fondo);
+
+  display: flex; justify-content: center; align-items: center;
+}
+
+/* el card interno queda igual */
+.formulario article {
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-secundario);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 2rem 3rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.formulario h1 {
+  color: var(--color-primario);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transicion);
+}
+
+.formulario input:focus {
+  border-color: var(--color-secundario);
+}
+
+.formulario button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.formulario button:hover {
+  background-color: var(--color-secundario);
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   💳 CARD DE PARTICIPANTE – Cuentas Claras
+   ============================================================ */
+/* ============================================================
+   👥 GRUPO – contenedor de las cards
+   ============================================================ */
+.grupo {
+  width: 100vw;
+  min-height: calc(100vh - 3cm); /* ocupa todo el alto visible menos el header */
+  margin-top: 3cm;                /* empuja debajo del header */
+  background-color: var(--color-fondo);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+   .card-participante {
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-secundario);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 0.8rem;
+  width: 260px;
+  text-align: center;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+  display: inline-block; /* 🔹 se acomodan una al lado de otra */
+  vertical-align: top;
+}
+
+.card-participante:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-participante h3 {
+  color: var(--color-primario);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-participante p {
+  color: var(--color-texto);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-participante button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.card-participante button:hover {
+  background-color: var(--color-secundario);
+  transform: scale(1.05);
+}
